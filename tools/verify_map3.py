@@ -1,0 +1,11 @@
+import re,requests,json
+from pathlib import Path
+repo=Path(r'C:\Working\Apple-Note Clone')
+items=json.loads(r'''{"Adding a loupe":"268d08e4-73b5-4ca2-b379-3effd232e22d","Pinning a note":"7c1527a6-fd39-4c15-b383-887a1f53392e","Locking a note":"6838fe06-6657-4d57-a9c0-d609354dfcdf","Finding in a note":"4d8ab25d-c9c2-44ff-ac93-35c3605a8722","Moving a note":"aa876fd7-95b7-47c3-b601-d248677e8617","Opening a recent note":"202f37ab-e3b4-4351-955f-e6a1f4bce6b8","Solving a math equation":"524f75d7-141e-46d0-922b-a843f08c24ea","Adding lines & grids":"b5fefc19-32a4-49ac-b159-1a58fd796609","Switching attachment view to large":"1aa75987-8fd9-4315-88f7-45fb8eb5c1fb","Deleting a note":"1987c666-66ec-4101-b98f-f6c9500d9b99","Switching to gallery view":"a1c0c9e7-2b22-4c7e-9674-ff7c1dded99b","Sorting notes":"61080832-1ac0-439c-8268-d3eceab1de2e","Turning off group by date":"d96c2f99-5a23-4c3b-b365-1cb0e321fcc8","View attachments":"d68b1713-a8d6-4588-a0a1-d557d746bd27"}''')
+items=dict(list(items.items())[10:])
+def slug(x): return re.sub(r'[^a-z0-9]+','-',x.lower().replace('&','and')).strip('-')
+for name,uid in items.items():
+ s=requests.get('https://mobbin.com/flows/'+uid,timeout=30).text; st=s.find(r'\"screens\":['); urls=re.findall(r'screenCdnImgSources.*?src\\":\\"(https://[^"\\]+)',s[st:st+90000]); out=repo/'docs/apple-notes/flows'/slug(name)/'screenshots'; out.mkdir(parents=True,exist_ok=True)
+ for p in out.glob('*.webp'): p.unlink()
+ for i,u in enumerate(urls,1): (out/f'{i:02}.webp').write_bytes(requests.get(u,timeout=30).content)
+ nodes='\n'.join(f'  S{i}[Screen {i}]' for i in range(1,len(urls)+1)); edges='\n'.join(f'  S{i} --> S{i+1}' for i in range(1,len(urls))); shots='\n'.join(f'### Screen {i}\n\n![Screen {i}](screenshots/{i:02}.webp)' for i in range(1,len(urls)+1)); md=f'# {name}\n\n- App: Apple Notes iOS\n- Capture status: verified\n- Source: [Mobbin detail flow](https://mobbin.com/flows/{uid})\n- Verified screens: {len(urls)}\n\n## Flow chart\n\n```mermaid\nflowchart LR\n{nodes}\n{edges}\n```\n\n## Verified evidence\n\n{shots}\n\n## BMad handoff notes\n\n- Implement the interaction sequence in Mermaid order.\n- Treat each screenshot as the visual reference for its state.\n'; (repo/'docs/apple-notes/flows'/slug(name)/'README.md').write_text(md,encoding='utf8'); print(name,len(urls),flush=True)
