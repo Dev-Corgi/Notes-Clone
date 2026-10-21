@@ -4,7 +4,7 @@
 - App: Apple Notes iOS
 - Device: iOS 393×852
 - Screen count: 5
-- Capture status: captured
+- Capture status: verified
 
 ## Flow chart
 
@@ -54,3 +54,4 @@ The same note is marked `Locked`, confirming the state change in the list.
 - Experience: locking changes the list state in place and exposes the lock status next to the note.
 - Design: preserve the strong hierarchy of the `Notes` title, date grouping, note rows, and bottom actions.
 - Open question: define the exact trigger that changes the list from `Unlocked` to `Locked` in the clone.
+
