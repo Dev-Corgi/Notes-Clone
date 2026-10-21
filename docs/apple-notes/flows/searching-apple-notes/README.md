@@ -1,11 +1,39 @@
 # Searching Apple Notes
 
 - App: Apple Notes iOS
-- Capture status: cataloged
+- Capture status: verified
+- Source: [Mobbin detail flow](https://mobbin.com/flows/d50276d4-7219-40a3-b693-a4c442dea7a0)
+- Verified screens: 4
+
+## Flow chart
 
 ```mermaid
 flowchart LR
-  A[Notes] --> B[Search] --> C[Results]
+  S1[Screen 1]
+  S2[Screen 2]
+  S3[Screen 3]
+  S4[Screen 4]
+  S1 --> S2
+  S2 --> S3
+  S3 --> S4
 ```
 
-![Searching Apple Notes](../reordering-folders/screenshots/01.webp)
+## Verified evidence
+
+### Screen 1
+
+![Screen 1](screenshots/01.webp)
+### Screen 2
+
+![Screen 2](screenshots/02.webp)
+### Screen 3
+
+![Screen 3](screenshots/03.webp)
+### Screen 4
+
+![Screen 4](screenshots/04.webp)
+
+## BMad handoff notes
+
+- Implement the interaction sequence in Mermaid order.
+- Treat each screenshot as the visual reference for its state.

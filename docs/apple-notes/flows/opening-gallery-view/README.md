@@ -1,22 +1,29 @@
 # Opening gallery view
 
 - App: Apple Notes iOS
-- Capture status: captured
-- Source: [Mobbin Apple Notes flows](https://mobbin.com/apps/apple-notes-ios-201a63f1-7499-4ebe-b92d-401605aa41bb/1782dd26-1259-4ebf-b402-384a81685971/flows)
+- Capture status: verified
+- Source: [Mobbin detail flow](https://mobbin.com/flows/d4bf5ccf-f458-44fa-a84e-5e09119d7033)
+- Verified screens: 2
 
 ## Flow chart
 
 ```mermaid
 flowchart LR
-  A[Entry] --> B[Opening gallery view]
-  B --> C[Observed result]
+  S1[Screen 1]
+  S2[Screen 2]
+  S1 --> S2
 ```
 
-## Reference screen
+## Verified evidence
 
-![Opening gallery view](screenshots/01.webp)
+### Screen 1
+
+![Screen 1](screenshots/01.webp)
+### Screen 2
+
+![Screen 2](screenshots/02.webp)
 
 ## BMad handoff notes
 
-- Record the observed entry point, action, result, and any destructive or reversible state here.
-- Promote confirmed behavior into `EXPERIENCE.md`; promote visual decisions into `DESIGN.md`.
+- Implement the interaction sequence in Mermaid order.
+- Treat each screenshot as the visual reference for its state.
