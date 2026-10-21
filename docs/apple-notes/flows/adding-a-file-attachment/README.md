@@ -1,22 +1,29 @@
 # Adding a file attachment
 
 - App: Apple Notes iOS
-- Capture status: captured
-- Source: [Mobbin Apple Notes flows](https://mobbin.com/apps/apple-notes-ios-201a63f1-7499-4ebe-b92d-401605aa41bb/1782dd26-1259-4ebf-b402-384a81685971/flows)
+- Capture status: verified
+- Source: [Mobbin detail flow](https://mobbin.com/flows/e904ab96-4530-4018-8c83-2b2c2d376f2f)
+- Verified screens: 2
 
 ## Flow chart
 
 ```mermaid
 flowchart LR
-  A[Entry] --> B[Adding a file attachment]
-  B --> C[Observed result]
+  S1[Screen 1]
+  S2[Screen 2]
+  S1 --> S2
 ```
 
-## Reference screen
+## Verified evidence
 
-![Adding a file attachment](screenshots/01.webp)
+### Screen 1
+
+![Screen 1](screenshots/01.webp)
+### Screen 2
+
+![Screen 2](screenshots/02.webp)
 
 ## BMad handoff notes
 
-- Record the observed entry point, action, result, and any destructive or reversible state here.
-- Promote confirmed behavior into `EXPERIENCE.md`; promote visual decisions into `DESIGN.md`.
+- Implement the interaction sequence in Mermaid order.
+- Treat each screenshot as the visual reference for its state.

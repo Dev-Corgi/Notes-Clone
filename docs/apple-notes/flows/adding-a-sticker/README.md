@@ -28,8 +28,6 @@ flowchart LR
 
 ## Verified evidence
 
-The screenshots below are downloaded from the Mobbin detail page for this exact flow.
-
 ### Screen 1
 
 ![Screen 1](screenshots/01.webp)
@@ -57,5 +55,5 @@ The screenshots below are downloaded from the Mobbin detail page for this exact 
 
 ## BMad handoff notes
 
-- Implement the interaction sequence in the Mermaid order.
-- Treat each screenshot as the visual reference for its corresponding state.
+- Implement the interaction sequence in Mermaid order.
+- Treat each screenshot as the visual reference for its state.
