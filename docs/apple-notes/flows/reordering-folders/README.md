@@ -1,36 +1,39 @@
-# Reordering folders from Folders
+# Reordering folders
 
-- Source: [Mobbin flow](https://mobbin.com/flows/e929a163-5ebc-465f-98af-165689d5ecad)
 - App: Apple Notes iOS
-- Entry surface: Folders
-- Screen count: 4
-- Capture status: captured
+- Capture status: verified
+- Source: [Mobbin detail flow](https://mobbin.com/flows/7276970d-d1b0-447d-bd44-ad6000a0883b)
+- Verified screens: 4
 
 ## Flow chart
 
 ```mermaid
 flowchart LR
-  A[Folders] --> B[Edit folders]
-  B --> C[Drag folder]
-  C --> D[Folders reordered]
+  S1[Screen 1]
+  S2[Screen 2]
+  S3[Screen 3]
+  S4[Screen 4]
+  S1 --> S2
+  S2 --> S3
+  S3 --> S4
 ```
 
-## Screens
+## Verified evidence
 
-### 1. Folders
-![Folders](screenshots/01.webp)
+### Screen 1
 
-### 2. Edit folders
-![Edit folders](screenshots/02.webp)
+![Screen 1](screenshots/01.webp)
+### Screen 2
 
-### 3. Drag folder
-![Drag folder](screenshots/03.webp)
+![Screen 2](screenshots/02.webp)
+### Screen 3
 
-### 4. Reordered result
-![Reordered result](screenshots/04.webp)
+![Screen 3](screenshots/03.webp)
+### Screen 4
 
-## Observations
+![Screen 4](screenshots/04.webp)
 
-- The flow starts from the Folders surface.
-- Reordering is a direct manipulation gesture with a visible positional result.
-- The final state remains inspectable after the gesture completes.
+## BMad handoff notes
+
+- Implement the interaction sequence in Mermaid order.
+- Treat each screenshot as the visual reference for its state.
